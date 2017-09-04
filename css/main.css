@@ -102,6 +102,25 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     color: #666;
 }
+
+/* STICKY FOOTER */
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -40px; /* the bottom margin is the negative value of the footer's height */
+}
+footer {
+    padding: 10px;
+    background: #dbba34;
+    color: #fff;
+    font-weight: 200;
+    height: 20px; /* .push must be the same height as .footer */
+}
+.push {
+    height: 40px;
+}
+
 /* button */
 .button {
     cursor: pointer;
