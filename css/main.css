@@ -231,8 +231,13 @@ header .button {
 }
 
 
-
-
+.widget.line p span {
+    color: #dbba34;
+}
+.widget.line p strong {
+    color: #637b85;
+    font-weight: 400;
+}
 
 
 
