@@ -207,10 +207,10 @@ header .button {
     top: 3px;
     content: "";
 }
-.ship:before { background-color: #637b85; }
-.rework:before { background-color: #2c9c69; }
-.admin:before { background-color: #dbba34; }
-.prod:before { background-color: #c62f29; }
+.rdte:before { background-color: #637b85; }
+.ommc:before { background-color: #2c9c69; }
+.pmc:before { background-color: #dbba34; }
+/* .prod:before { background-color: #c62f29; } */
 
 .widget.doughnut .status {
     display: block;
