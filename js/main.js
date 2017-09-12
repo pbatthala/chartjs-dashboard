@@ -59,7 +59,18 @@ var hours = new Chart(ctx, {
     data: data
 });
 
-    // $('#ajax').click(function(){
+    $('#addElement').click(function(){
+        contracts.data.datasets[0].data[2] = 50;
+        contracts.update();
+    });
+
+    $('#removeElement').click(function(){
+        contracts.data.datasets[0].data[2] = 16;
+        contracts.update();
+    });
+
+
+    // $('#addElement').click(function(){
     //     // alert('ajax');
     //      $.ajax({
     //        // type: "GET",
@@ -110,6 +121,9 @@ var hours = new Chart(ctx, {
                         beginAtZero:true
                     }
                 }]
+            },
+            legend: {
+                display: false
             }
         }
     });
