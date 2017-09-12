@@ -1,66 +1,52 @@
 <!doctype html>
 <html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Fundable - Dashboard</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" href="favicon.ico">
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <!-- <script src="js/plugins.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
-    <script src="js/vendor/jquery-1.12.0.min.js"></script>
-</head>
-
-<body>
-    <!--  -------------------------------------------------- -->
-    <div class="wrapper">
-        <header>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Fundable - Dashboard</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="icon" href="favicon.ico">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <!-- <script src="js/plugins.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="js/vendor/jquery-1.12.0.min.js"></script>
+    </head>
+    <body>
+        <!--  -------------------------------------------------- -->
+        <div class="wrapper">
+            <header>
+                <div class="container clearfix">
+                    <h1>TITAN Dashboard</h1>
+                </div>
+            </header>
             <div class="container clearfix">
-                <h1>Overview <span>September 1-5, 2017</span><a class="button">Change Date Range</a></h1>
-            </div>
-        </header>
-        <div class="container clearfix">
-            <div class="third widget doughnut">
-                <h3>Breakdown: Appropriation Type</h3>
+                <div class="third widget doughnut">
+                    <h3>Breakdown: Appropriation Type</h3>
                     <p><a id="addNewData" class="button">Add New Data</a></p>
                     <p><a id="removeNewData" class="button">Remove New Data</a></p>
-                <div class="canvas-container">
-                    <canvas id="hours"></canvas>
-                    <script src="js/main.js"></script>
+                    <div class="canvas-container">
+                        <canvas id="hours"></canvas>
+                        <script src="js/main.js"></script>
+                    </div>
                 </div>
-            </div>
-            <div class="third widget bar">
-                <div class="chart-legend">
-                    <h3>Contracts</h3>
-                    <p><span>Cost in Millions</span></p>
-
-                    <p><a id="addElement" class="button">Increase A-2 Value</a></p>
-                    <p><a id="removeElement" class="button">Decrease A-2 Value</a></p>
-
-                        <!-- <p><a href="" class="button">Change Date Range</a><a href="" class="button">Filter by Location</a></p> -->
+                <div class="third widget bar">
+                    <div class="chart-legend">
+                        <h3>Contracts</h3>
+                        <p><span>Cost in Millions</span></p>
+                        <p><a id="addElement" class="button">Increase A-2 Value</a></p>
+                        <p><a id="removeElement" class="button">Decrease A-2 Value</a></p>
                     </div>
                     <div class="canvas-container">
                         <canvas id="contracts"></canvas>
                     </div>
                 </div>
-                <!-- <div class="third widget line">
-                    <div class="chart-legend">
-                        <h3>Shipments per Day</h3>
-                        <p><span>This Week</span> &mdash; <strong>Last Week</strong></p>
-                    <p><a href="" class="button">Change Date Range</a><a href="" class="button">Filter by Location</a></p>
-                </div>
-                <div class="canvas-container">
-                    <canvas id="shipments"></canvas>
-                </div>
-            </div> -->
-            <div class="third widget">
+                <div class="third widget">
                     <div class="chart-legend">
                         <h3>Expenditure Type</h3>
                     </div>
@@ -68,23 +54,25 @@
                         <canvas id="expenditure"></canvas>
                     </div>
                 </div>
+            </div>
+            <div class="push"></div>
+            <div class="container clearfix">
+                <h3>AJAX Call to TITAN APIs</h3>
+                <p><a id="ajax" class="button">AJAX CALL</a></p>
+            </div>
         </div>
-        <div class="push"></div>
-    </div>
-    <footer>
-        <div class="container">
-            ChartJS Demo - Esteban Amas &copy;
-        </div>
-    </footer>
-    <!---------------------------------------------------------- -->
-    <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <!-- <script src="js/vendor/chart.min.js"></script> -->
-    <script src="js/vendor/rangeslider.min.js"></script>
-    <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
-
-    </script>
-</body>
-
+        <footer>
+            <div class="container">
+                ChartJS Demo - Esteban Amas &copy;
+            </div>
+        </footer>
+        <!---------------------------------------------------------- -->
+        <!-- <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <!-- <script src="js/vendor/chart.min.js"></script> -->
+        <script src="js/vendor/rangeslider.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+        </script>
+    </body>
 </html>

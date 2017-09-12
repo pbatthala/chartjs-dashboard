@@ -1,131 +1,163 @@
-(function(){
+(function() {
     var t;
-    function size(animate){
-        if (animate == undefined){
+
+    function size(animate) {
+        if (animate == undefined) {
             animate = false;
         }
         clearTimeout(t);
-        t = setTimeout(function(){
-            $("canvas").each(function(i,el){
+        t = setTimeout(function() {
+            $("canvas").each(function(i, el) {
                 $(el).attr({
-                    "width":$(el).parent().width(),
-                    "height":$(el).parent().outerHeight()
+                    "width": $(el).parent().width(),
+                    "height": $(el).parent().outerHeight()
                 });
             });
             redraw(animate);
             var m = 0;
             $(".widget").height("");
-            $(".widget").each(function(i,el){ m = Math.max(m,$(el).height()); });
+            $(".widget").each(function(i, el) { m = Math.max(m, $(el).height()); });
             $(".widget").height(m);
         }, 30);
     }
-    $(window).on('resize', function(){ size(false); });
+
+    // THIS WILL RE-RENDER ALL CHARTS WHEN WINDOW SIZE CHANGES
+    // $(window).on('resize', function(){ size(false); });
 
 
-    function redraw(animation){
+    function redraw(animation) {
         var options = {};
-        if (!animation){
+        if (!animation) {
             options.animation = false;
         } else {
             options.animation = true;
         }
 
-    // --------------- DOUGHNUT GRAPH
+// ------------------------------ DOUGHNUT GRAPH ------------------------------
+// ------------------------------------------------------------
 
-data = {
+        data = {
 
-        datasets: [{
-            label: 'Breakdown: Appropriation Type',
-            data: [46, 17, 24],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-               'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }],
-        labels: ["RDTE", "OMMC", "PMC"]
-    };
+            datasets: [{
+                label: 'Breakdown: Appropriation Type',
+                data: [46, 17, 24],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }],
+            labels: ["RDTE", "OMMC", "PMC"]
+        };
 
-var ctx = document.getElementById("hours");
+        var ctx = document.getElementById("hours");
 
-var hours = new Chart(ctx, {
-    type: 'doughnut',
-    data: data
-});
+        var hours = new Chart(ctx, {
+            type: 'doughnut',
+            data: data
+        });
 
-    $('#addElement').click(function(){
-        contracts.data.datasets[0].data[2] = 50;
-        contracts.update();
-    });
+        $('#addElement').click(function() {
+            contracts.data.datasets[0].data[2] = 50;
+            contracts.update();
+        });
 
-    $('#removeElement').click(function(){
-        contracts.data.datasets[0].data[2] = 16;
-        contracts.update();
-    });
+        $('#removeElement').click(function() {
+            contracts.data.datasets[0].data[2] = 16;
+            contracts.update();
+        });
 
-    $('#addNewData').click(function(){
-        addData(hours, makeid(), Math.floor(Math.random() * 20));
-    });
+        $('#addNewData').click(function() {
+            addData(hours, makeid(), Math.floor(Math.random() * 20));
+        });
 
-    $('#removeNewData').click(function(){
-        removeData(hours);
-    });
+        $('#removeNewData').click(function() {
+            removeData(hours);
+        });
 
-    function addData(chart, label, data) {
+        function addData(chart, label, data) {
             chart.data.labels.push(label);
             chart.data.datasets.forEach((dataset) => {
                 dataset.data.push(data);
             });
             chart.update();
-    }
+        }
 
-    function removeData(chart) {
+        function removeData(chart) {
             chart.data.labels.pop();
             chart.data.datasets.forEach((dataset) => {
-            dataset.data.pop();
-        });
-        chart.update();
-    }
+                dataset.data.pop();
+            });
+            chart.update();
+        }
 
-    function makeid() {
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        function makeid() {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-        for (var i = 0; i < 4; i++)
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
+            for (var i = 0; i < 4; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
             return text.toUpperCase();
-    }
+        }
 
-    // $('#addElement').click(function(){
-    //     // alert('ajax');
-    //      $.ajax({
-    //        // type: "GET",
-    //        url: "http://localhost:7070/GetAllProjects",
-    //        dataType: "json",
-    //        // data: data,
-    //        success: function(data){
-    //             var arraydata = JSON.parse(data);
-    //                 $.each(arraydata, function(index, el) {
-    //                 alert("element at " + index + ": " + el); // will alert each value
-    //             });
-    //        }
-    //     });
-    // });
+        $('#ajax').click(function(){
+            // console.log('Hello, World');
+            $.ajax({
+                method: "GET",
+                url: "http://titan.blue.com:7070/HelloWorld",
+                dataType: "jsonp",
+                crossDomain: true,
+                timeout: 5000,
+                success: function(data){
+                    // var data = JSON.parse(data);
+                    var obj = jQuery.parseJSON( '{ "name": "John" }' );
+                    alert( obj.name === "John" );
+                    // var arraydata = JSON.stringify(data);
+                        // console.log(arraydata[0]);
+                    console.log(data[0]);
+                        // $.each(arraydata, function(index, el) {
+                        // console.log("element at " + index + ": " + el); // will alert each value
+                        // });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('error ' + textStatus + " " + errorThrown);
+                }
+            });
+        });
 
-//     // --------------- BAR GRAPH
-    var barData = {
+        // $('#addElement').click(function(){
+        //     // alert('ajax');
+        //      $.ajax({
+        //        // type: "GET",
+        //        url: "http://localhost:7070/GetAllProjects",
+        //        dataType: "json",
+        //        // data: data,
+        //        success: function(data){
+        //             var arraydata = JSON.parse(data);
+        //                 $.each(arraydata, function(index, el) {
+        //                 alert("element at " + index + ": " + el); // will alert each value
+        //             });
+        //        }
+        //     });
+        // });
+
+// ------------------------------------------------------------
+// ------------------------------ BAR GRAPH ------------------------------
+// ------------------------------------------------------------
+
+        var barData = {
             labels: ["C-1", "A-1", "A-2", "B-1"],
             datasets: [{
                 label: "Label",
@@ -133,78 +165,79 @@ var hours = new Chart(ctx, {
                 // yAxisID: "Millions",
                 data: [17, 16, 30, 24],
                 backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
                 ],
                 borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)'
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
                 ],
                 borderWidth: 1
             }]
         }
 
-    var cty = document.getElementById("contracts");
-    var contracts = new Chart(cty, {
-        type: 'bar',
-        data: barData,
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            },
-            legend: {
-                display: false
+        var cty = document.getElementById("contracts");
+        var contracts = new Chart(cty, {
+            type: 'bar',
+            data: barData,
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                legend: {
+                    display: false
+                }
             }
-        }
-    });
+        });
 
+// ------------------------------------------------------------
+// ------------------------------ RADAR GRAPH ------------------------------
+// ------------------------------------------------------------
 
-//     // --------------- RADAR GRAPH
-
-data = {
-    datasets: [{
-        data: [20, 40, 30, 60],
-        backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
+        data = {
+            datasets: [{
+                data: [20, 40, 30, 60],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
                 ],
                 borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)'
+                    'rgba(255,99,132,1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
                 ],
                 borderWidth: 1
-    }],
+            }],
 
-    labels: [
-        'X',
-        'Y',
-        'Z',
-        'B'
+            labels: [
+                'X',
+                'Y',
+                'Z',
+                'B'
 
-    ]
-};
+            ]
+        };
 
-var ctz = document.getElementById("expenditure");
-var expenditure = new Chart(ctz, {
-    data: data,
-    type: 'polarArea'
-});
+        var ctz = document.getElementById("expenditure");
+        var expenditure = new Chart(ctz, {
+            data: data,
+            type: 'polarArea'
+        });
+// ------------------------------------------------------------
 
 
-
-}
-size(true);
+    }
+    size(true);
 
 }());
