@@ -69,6 +69,18 @@ var hours = new Chart(ctx, {
         contracts.update();
     });
 
+    $('#addNewData').click(function(){
+        addData(hours, "Hello", Math.floor(Math.random));
+    });
+
+    function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(data);
+            });
+            chart.update();
+        }
+
 
     // $('#addElement').click(function(){
     //     // alert('ajax');
