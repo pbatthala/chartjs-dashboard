@@ -82,7 +82,7 @@ var hours = new Chart(ctx, {
                 label: "Label",
                 // xAxisID: "Contract",
                 // yAxisID: "Millions",
-                data: [17, 25, 30, 24],
+                data: [17, 16, 30, 24],
                 backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -97,12 +97,21 @@ var hours = new Chart(ctx, {
                 ],
                 borderWidth: 1
             }]
-    }
+        }
 
     var cty = document.getElementById("contracts");
     var contracts = new Chart(cty, {
         type: 'bar',
         data: barData,
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
     });
 
 
