@@ -70,7 +70,7 @@ var hours = new Chart(ctx, {
     });
 
     $('#addNewData').click(function(){
-        addData(hours, "Hello", Math.floor(Math.random));
+        addData(hours, makeid(), Math.floor(Math.random() * 20));
     });
 
     function addData(chart, label, data) {
@@ -79,8 +79,16 @@ var hours = new Chart(ctx, {
                 dataset.data.push(data);
             });
             chart.update();
-        }
+    }
 
+    function makeid() {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for (var i = 0; i < 4; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+            return text.toUpperCase();
+    }
 
     // $('#addElement').click(function(){
     //     // alert('ajax');
