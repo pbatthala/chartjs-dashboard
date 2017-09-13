@@ -33,6 +33,119 @@
             options.animation = true;
         }
 
+// ------------------------------------------------------------------------------
+// BUTTONS ----------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+        $('#addElement').click(function() {
+            contracts.data.datasets[0].data[2] = 50;
+            contracts.update();
+        });
+
+        $('#removeElement').click(function() {
+            contracts.data.datasets[0].data[2] = 16;
+            contracts.update();
+        });
+
+        $('#addNewData').click(function() {
+            var color = random_rgba();
+            addDataColor(hours, makeID(), Math.floor(Math.random() * 20), makeRGBA(color, 0.2), makeRGBA(color, 1));
+        });
+
+        $('#removeNewData').click(function() {
+            removeData(hours);
+        });
+
+
+        $('#ajax').click(function(){
+            $.ajax({
+                method: "GET",
+                // url: "http://titan.blue.com:7070/HelloWorld",
+                url: "https://uinames.com/api/?amount=2&region=United%20States&ext",
+                dataType: "jsonp",
+                crossDomain: true,
+                timeout: 5000,
+                success: function(data){
+                    // var data = JSON.parse(data);
+                        $.each(data, function(index, el) {
+                            var dataName = data[index].name;
+                            var dataPoint = data[index].age;
+                            var color = random_rgba();
+                            addDataColor(hours, dataName, dataPoint, makeRGBA(color, 0.2), makeRGBA(color, 1));
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert('error ' + textStatus + " " + errorThrown);
+                }
+            });
+        });
+
+// ------------------------------------------------------------------------------
+// HELPER FUNCTIONS ----------------------------------------------------------------------
+// ------------------------------------------------------------------------------
+
+        function addData(chart, label, data) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(data);
+            });
+            chart.update();
+        }
+
+        function addDataColor(chart, label, data, bgcolor, bordercolor) {
+            chart.data.labels.push(label);
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.push(data);
+            });
+            chart.data.datasets.forEach((backgroundcolors) => {
+                backgroundcolors.backgroundColor.push(bgcolor);
+            });
+            chart.data.datasets.forEach((bordercolors) => {
+                bordercolors.borderColor.push(bordercolor);
+            });
+            chart.update();
+        }
+
+        function removeData(chart) {
+            chart.data.labels.pop();
+            chart.data.datasets.forEach((dataset) => {
+                dataset.data.pop();
+            });
+            chart.update();
+        }
+
+        function makeID() {
+            var text = "";
+            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for (var i = 0; i < 4; i++)
+                text += possible.charAt(Math.floor(Math.random() * possible.length));
+            return text.toUpperCase();
+        }
+
+        function random_rgba() {
+            var o = Math.round, r = Math.random, s = 255;
+
+            var first = o(r()*s);
+            var second = o(r()*s);
+            var third = o(r()*s);
+
+            var rgbColor = [];
+            rgbColor.push(first);
+            rgbColor.push(second);
+            rgbColor.push(third);
+
+            return rgbColor
+        }
+
+        function makeRGBA(rgb,a) {
+            var r = rgb[0];
+            var g = rgb[1];
+            var b = rgb[2];
+
+            return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+        }
+
+
 // ------------------------------ DOUGHNUT GRAPH ------------------------------
 // ------------------------------------------------------------
 
@@ -68,90 +181,6 @@
             type: 'doughnut',
             data: data
         });
-
-        $('#addElement').click(function() {
-            contracts.data.datasets[0].data[2] = 50;
-            contracts.update();
-        });
-
-        $('#removeElement').click(function() {
-            contracts.data.datasets[0].data[2] = 16;
-            contracts.update();
-        });
-
-        $('#addNewData').click(function() {
-            addData(hours, makeid(), Math.floor(Math.random() * 20));
-        });
-
-        $('#removeNewData').click(function() {
-            removeData(hours);
-        });
-
-        function addData(chart, label, data) {
-            chart.data.labels.push(label);
-            chart.data.datasets.forEach((dataset) => {
-                dataset.data.push(data);
-            });
-            chart.update();
-        }
-
-        function removeData(chart) {
-            chart.data.labels.pop();
-            chart.data.datasets.forEach((dataset) => {
-                dataset.data.pop();
-            });
-            chart.update();
-        }
-
-        function makeid() {
-            var text = "";
-            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-            for (var i = 0; i < 4; i++)
-                text += possible.charAt(Math.floor(Math.random() * possible.length));
-            return text.toUpperCase();
-        }
-
-        $('#ajax').click(function(){
-            // console.log('Hello, World');
-            $.ajax({
-                method: "GET",
-                url: "http://titan.blue.com:7070/HelloWorld",
-                dataType: "jsonp",
-                crossDomain: true,
-                timeout: 5000,
-                success: function(data){
-                    // var data = JSON.parse(data);
-                    var obj = jQuery.parseJSON( '{ "name": "John" }' );
-                    alert( obj.name === "John" );
-                    // var arraydata = JSON.stringify(data);
-                        // console.log(arraydata[0]);
-                    console.log(data[0]);
-                        // $.each(arraydata, function(index, el) {
-                        // console.log("element at " + index + ": " + el); // will alert each value
-                        // });
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    alert('error ' + textStatus + " " + errorThrown);
-                }
-            });
-        });
-
-        // $('#addElement').click(function(){
-        //     // alert('ajax');
-        //      $.ajax({
-        //        // type: "GET",
-        //        url: "http://localhost:7070/GetAllProjects",
-        //        dataType: "json",
-        //        // data: data,
-        //        success: function(data){
-        //             var arraydata = JSON.parse(data);
-        //                 $.each(arraydata, function(index, el) {
-        //                 alert("element at " + index + ": " + el); // will alert each value
-        //             });
-        //        }
-        //     });
-        // });
 
 // ------------------------------------------------------------
 // ------------------------------ BAR GRAPH ------------------------------
@@ -235,6 +264,7 @@
             type: 'polarArea'
         });
 // ------------------------------------------------------------
+
 
 
     }
