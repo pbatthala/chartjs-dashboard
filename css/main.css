@@ -99,7 +99,7 @@ html, body {
     height: 100%;
 }
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Helvetica', 'Source Sans Pro', sans-serif;
     color: #666;
 }
 
@@ -150,9 +150,11 @@ footer {
 /* Header styles */
 header {
     text-align: center;
-    background: #637b85;
+    background: #434c50;
     color: #fff;
     margin-bottom: 40px;
+    display: flex;
+
 }
 header span {
     font-weight: 200;
@@ -160,6 +162,10 @@ header span {
 header .button {
     font-size: 0.2em;
     top: -6px;
+}
+
+header img {
+    vertical-align: left;
 }
 
 /* various containers */
