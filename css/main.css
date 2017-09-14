@@ -99,7 +99,8 @@ html, body {
     height: 100%;
 }
 body {
-    font-family: 'Helvetica', 'Source Sans Pro', sans-serif;
+    font-family: 'Lato', 'Helvetica', sans-serif;
+    /* font-family: 'Helvetica', 'Source Sans Pro', sans-serif; */
     color: #666;
 }
 
@@ -153,7 +154,7 @@ header {
     background: #434c50;
     color: #fff;
     margin-bottom: 40px;
-    display: flex;
+    /* display: flex; */
 
 }
 header span {
@@ -164,8 +165,21 @@ header .button {
     top: -6px;
 }
 
-header img {
-    vertical-align: left;
+.text-muted {
+  color: #bcbbbb;
+}
+
+.text-thin  {
+  font-weight: 100;
+  color: #bcbbbb;
+}
+
+.title-super {
+  font-size: 2em;
+}
+
+.title-logo {
+  padding-top: 10px;
 }
 
 /* various containers */
