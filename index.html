@@ -9,9 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" href="favicon.ico">
-    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/normalize.css">
     <!-- <script src="js/plugins.js"></script> -->
     <script src="js/vendor/Chart.bundle.min.js"></script>
     <script src="js/vendor/Chart.min.js"></script>
@@ -24,48 +23,48 @@
     <div class="wrapper">
         <header>
             <div class="container clearfix">
-                <img src="img/TITANlogo-color.png">
+                <img id="titan-logo" src="img/TITANlogo-color.png">
+                <!-- <div class="icons">
+                    &#128269; &#128490; &#127758;
+                </div> -->
                 <h1 class="title-super text-thin">Dashboard</h1>
-                <!-- <h1>Dashboard</h1> -->
             </div>
         </header>
-        <main>
-            <div class="container clearfix">
-                <h3>AJAX Call to TITAN APIs</h3>
-                <p><a id="ajax" class="button">AJAX CALL</a></p>
-            </div>
-            <div class="container clearfix">
-                <div class="third widget doughnut">
-                    <h3>Breakdown: Appropriation Type</h3>
-                    <p><a id="addNewData" class="button">Add New Data</a></p>
-                    <p><a id="removeNewData" class="button">Remove New Data</a></p>
-                    <div class="canvas-container">
-                        <canvas id="hours"></canvas>
-                        <script src="js/main.js"></script>
-                    </div>
-                </div>
-                <div class="third widget bar">
-                    <div class="chart-legend">
-                        <h3>Contracts</h3>
-                        <p><span>Cost in Millions</span></p>
-                        <p><a id="addElement" class="button">Increase A-2 Value</a></p>
-                        <p><a id="removeElement" class="button">Decrease A-2 Value</a></p>
-                    </div>
-                    <div class="canvas-container">
-                        <canvas id="contracts"></canvas>
-                    </div>
-                </div>
-                <div class="third widget">
-                    <div class="chart-legend">
-                        <h3>Expenditure Type</h3>
-                    </div>
-                    <div class="canvas-container">
-                        <canvas id="expenditure"></canvas>
-                    </div>
+        <div class="container clearfix">
+            <h3>AJAX Call to TITAN APIs</h3>
+            <p><a id="ajax" class="button">AJAX CALL</a></p>
+        </div>
+        <div class="container clearfix">
+            <div class="third widget doughnut">
+                <h3>Breakdown: Appropriation Type</h3>
+                <p><a id="addNewData" class="button">Add New Data</a></p>
+                <p><a id="removeNewData" class="button">Remove New Data</a></p>
+                <div class="canvas-container">
+                    <canvas id="hours"></canvas>
+                    <script src="js/main.js"></script>
                 </div>
             </div>
-            <div class="push"></div>
-        </main>
+            <div class="third widget bar">
+                <div class="chart-legend">
+                    <h3>Contracts</h3>
+                    <p><span>Cost in Millions</span></p>
+                    <p><a id="addElement" class="button">Increase A-2 Value</a></p>
+                    <p><a id="removeElement" class="button">Decrease A-2 Value</a></p>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="contracts"></canvas>
+                </div>
+            </div>
+            <div class="third widget">
+                <div class="chart-legend">
+                    <h3>Expenditure Type</h3>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="expenditure"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="push"></div>
         <footer>
             <div class="container">
                 ChartJS Demo - Esteban Amas &copy;

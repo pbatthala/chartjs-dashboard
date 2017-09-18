@@ -104,6 +104,12 @@ body {
     color: #666;
 }
 
+#titan-logo {
+    width: 200px;
+    margin-top: 10px;
+    float: left;
+}
+
 /* STICKY FOOTER */
 .wrapper {
     min-height: 100%;
@@ -152,6 +158,7 @@ footer {
 header {
     text-align: center;
     background: #434c50;
+    background: #333333;
     color: #fff;
     margin-bottom: 40px;
     /* display: flex; */
@@ -165,17 +172,24 @@ header .button {
     top: -6px;
 }
 
+.icons {
+    padding-right: 20px;
+    /* margin-top: 20px; */
+}
+
 .text-muted {
-  color: #bcbbbb;
+  color: #eeeeee;
+
 }
 
 .text-thin  {
   font-weight: 100;
-  color: #bcbbbb;
+  color: #eeeeee;
 }
 
 .title-super {
   font-size: 2em;
+    float: right;
 }
 
 .title-logo {
@@ -266,7 +280,7 @@ header .button {
     text-align: center;
     color: #627b86;
     line-height: 2em;
-    background: #d0dde3;
+    background: #EFEFEA;
 }
 
 
