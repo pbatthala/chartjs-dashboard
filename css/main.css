@@ -104,6 +104,36 @@ body {
     color: #666;
 }
 
+.apps-container {
+    /* background: #dddddd; */
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 100px;
+    bottom: 0;
+    width: 360px;
+    overflow: auto;
+    padding: 10px 10px 10px 0;
+    /* border-right: solid 1px #cccccc; */
+}
+
+.app-wrapper {
+    float: left;
+    width: 300px;
+}
+}
+
+.feed-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 100px;
+    background: #eeeeee;
+    padding-left: 370px;
+    overflow: auto;
+}
+
 #titan-logo {
     width: 150px;
     margin-top: 20px;
