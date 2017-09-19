@@ -105,7 +105,6 @@ body {
 }
 
 .apps-container {
-    /* background: #dddddd; */
     position: absolute;
     z-index: 1000;
     left: 0;
@@ -114,25 +113,222 @@ body {
     width: 360px;
     overflow: auto;
     padding: 10px 10px 10px 0;
-    /* border-right: solid 1px #cccccc; */
 }
 
 .app-wrapper {
     float: left;
     width: 300px;
-}
+    padding-bottom: 20px;
 }
 
-.feed-container {
+.app {
+    margin: 10px 10px;
+    height: 200px;
+    border-left: 8px solid transparent;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+div.feed-container{
     position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 100px;
+    left:0;
+    right:0;
+    bottom:0;
+    top: 20px;
     background: #eeeeee;
     padding-left: 370px;
     overflow: auto;
 }
+
+div.feed-container div.feed-header{
+    position: fixed;
+    top: 10px;
+    left: 370px;
+    right: 0;
+    background: #eeeeee;
+    height: 1px;
+    z-index: 1001;
+    /*border-bottom: solid 1px #dddddd;*/
+}
+
+div.feed-header div.feed-header-year-wrap{
+    height: 20px;
+    display: block;
+    background: #eeeeee;
+    z-index:1002;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-top: solid 1px #cccccc;
+    border-bottom: solid 1px #cccccc;
+    border-left: solid 1px #cccccc;
+}
+
+div.feed-header-year-wrap div.feed-header-year-cell{
+    flex-grow: 1;
+    text-align: center;
+    border-right: solid 1px #cccccc;
+    color: #aaaaaa;
+}
+
+div.feed-header-year-wrap div.feed-header-year-cell.active{
+    font-weight: bold;
+    color: #666666;
+}
+
+div.feed-header div.feed-header-title{
+    display: block;
+    height: 80px;
+    line-height: 80px;
+    font-size: 24px;
+    padding: 0 20px;
+    color: #444444;
+}
+
+div.feed-header div.feed-header-user{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 80px;
+    padding: 0 20px;
+    line-height: 80px;
+    font-size: 14px;
+    display: flex;
+}
+
+div.feed-header div.feed-header-user-icon{
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin: 14px 0;
+    border: solid 2px #dddddd;
+    background: #eeeeee;
+    overflow: hidden;
+    line-height: 48px;
+}
+
+div.feed-header div.feed-header-user-icon img{
+    width: 48px;
+    height: 48px;
+}
+
+div.feed-header div.feed-header-user-name {
+    height: 80px;
+    line-height: 80px;
+    margin-left: 10px;
+}
+
+div.feed-container div.feed-wrap{
+    width: 600px;
+    margin: 0 auto;
+    padding: 50px 0 40px 0;
+}
+
+div.feed-container div.feed-wrap div.feed-cell{
+    display: block;
+    position: relative;
+    margin: 20px 0 0 0;
+    background: #ffffff;
+    border-radius: 4px;
+    border-bottom: solid 3px #cccccc;
+    border-left: solid 2px #cccccc;
+    border-right: solid 2px #cccccc;
+}
+
+div.feed-cell div.feed-cell-details{
+    display: block;
+    position: relative;
+    width: 100%;
+    font-size: 14px;
+    /*padding: 7px;*/
+    padding: 10px 9px 4px 9px;
+    margin-bottom: 7px;
+    border-bottom: dotted 1px #cccccc;
+    color: #999999;
+}
+
+div.feed-cell div.feed-cell-icon{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #dddddd;
+    width: 64px;
+    max-width: 64px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: center;*/
+}
+
+i.feed-icon-glyph{
+    margin: 0 auto;
+    vertical-align: middle;
+    color: #333;
+    font-size: 28px;
+}
+
+div.feed-cell-icon div.icon-cell{
+    height: 48px;
+    width: 48px;
+    border-radius: 4px;
+    background: #cccccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+div.feed-cell div.feed-cell-icon img{
+    width: 64px;
+    height: 64px;
+}
+
+div.feed-cell-content-wrap{
+    display: block;
+    padding-left: 84px;
+    min-height: 64px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+div.feed-cell-content-wrap div.feed-cell-content{
+    min-height: 64px;
+    margin-bottom: 15px;
+}
+
+div.feed-cell-content-wrap div.feed-cell-copy-wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+div.feed-cell-copy-wrap div.feed-cell-copy-img{
+    width: 102px;
+    height: 102px;
+    margin: 10px;
+}
+
+div.feed-cell-content div.feed-cell-event{
+    font-size: 14px;
+    padding-left: 10px;
+    color: #777777;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+div.feed-cell-copy-wrap div.feed-cell-copy{
+    width: 100%;
+    padding: 0 20px 0 10px;
+}
+
 
 #titan-logo {
     width: 150px;
