@@ -135,6 +135,7 @@ body {
 .glyphicon-search {padding-right: 20px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
 .glyphicon-comment {padding-right: 20px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
 .glyphicon-globe {padding-right: 30px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
+.glyphicon-th {padding-bottom: 2px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
 
 .glyphicon-search:before{content:"\e003"}
 .glyphicon-comment:before{content:"\e111"}
@@ -179,6 +180,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     vertical-align: middle;
+    padding-top: 3px;
 }
 
 
@@ -255,7 +257,7 @@ header .button {
 }
 
 .text-thin  {
-  font-weight: 100;
+  font-weight: 400;
     font-size: 18px;
   color: #eeeeee;
 }
