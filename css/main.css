@@ -120,6 +120,7 @@ body {
 .glyphicon {
     position: relative;
     top: 1px;
+    cursor: pointer;
     display: inline-block;
     font-family: 'Glyphicons Halflings';
     font-style: normal;
@@ -128,6 +129,12 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.glyphicon:hover {color:  #bbbbbb;}
+
+.glyphicon-search {padding-right: 20px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
+.glyphicon-comment {padding-right: 20px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
+.glyphicon-globe {padding-right: 30px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
 
 .glyphicon-search:before{content:"\e003"}
 .glyphicon-comment:before{content:"\e111"}
@@ -138,6 +145,8 @@ body {
 .user-menu-con {
     position: absolute;
     right: 0;
+    padding-top: 5px;
+    padding-right: 20px;
 }
 
 .navbar-header {
@@ -163,11 +172,13 @@ body {
     vertical-align: middle;
 }
 
-.user-menu .user-name {
+.user-name {
     display: inline-block;
     max-width: 160px;
+    padding-right: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
+    vertical-align: middle;
 }
 
 
@@ -245,6 +256,7 @@ header .button {
 
 .text-thin  {
   font-weight: 100;
+    font-size: 18px;
   color: #eeeeee;
 }
 
