@@ -265,6 +265,141 @@
         });
 // ------------------------------------------------------------
 
+/* ----------------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------------ */
+
+    var presets = window.chartColors;
+    var utils = Samples.utils;
+    var inputs = {
+      min: 20,
+      max: 80,
+      count: 8,
+      decimals: 2,
+      continuity: 1
+    };
+
+    function generateData() {
+      return utils.numbers(inputs);
+    }
+
+    function generateLabels(config) {
+      return utils.months({count: inputs.count});
+    }
+
+    utils.srand(42);
+
+    var data = {
+      labels: generateLabels(),
+      datasets: [{
+        backgroundColor: utils.transparentize(presets.red),
+        borderColor: presets.red,
+        data: generateData(),
+        hidden: true,
+        label: 'D0'
+      }, {
+        backgroundColor: utils.transparentize(presets.orange),
+        borderColor: presets.orange,
+        data: generateData(),
+        label: 'D1',
+        fill: '-1'
+      }, {
+        backgroundColor: utils.transparentize(presets.yellow),
+        borderColor: presets.yellow,
+        data: generateData(),
+        hidden: true,
+        label: 'D2',
+        fill: 1
+      }, {
+        backgroundColor: utils.transparentize(presets.green),
+        borderColor: presets.green,
+        data: generateData(),
+        label: 'D3',
+        fill: '-1'
+      }, {
+        backgroundColor: utils.transparentize(presets.blue),
+        borderColor: presets.blue,
+        data: generateData(),
+        label: 'D4',
+        fill: '-1'
+      }, {
+        backgroundColor: utils.transparentize(presets.grey),
+        borderColor: presets.grey,
+        data: generateData(),
+        label: 'D5',
+        fill: '+2'
+      }, {
+        backgroundColor: utils.transparentize(presets.purple),
+        borderColor: presets.purple,
+        data: generateData(),
+        label: 'D6',
+        fill: false
+      }, {
+        backgroundColor: utils.transparentize(presets.red),
+        borderColor: presets.red,
+        data: generateData(),
+        label: 'D7',
+        fill: 8
+      }, {
+        backgroundColor: utils.transparentize(presets.orange),
+        borderColor: presets.orange,
+        data: generateData(),
+        hidden: true,
+        label: 'D8',
+        fill: 'end'
+      }]
+    };
+
+    var options = {
+      maintainAspectRatio: false,
+      spanGaps: false,
+      elements: {
+        line: {
+          tension: 0.000001
+        }
+      },
+      scales: {
+        yAxes: [{
+          stacked: true
+        }]
+      },
+      plugins: {
+        filler: {
+          propagate: false
+        },
+        samples_filler_analyser: {
+          target: 'chart-analyser'
+        }
+      }
+    };
+
+    var chart = new Chart('chart-0', {
+      type: 'line',
+      data: data,
+      options: options
+    });
+
+     $('#propagate').click(function togglePropagate(btn) {
+      var value = btn.classList.toggle('btn-on');
+      chart.options.plugins.filler.propagate = value;
+      chart.update();
+    });
+
+    function toggleSmooth(btn) {
+      var value = btn.classList.toggle('btn-on');
+      chart.options.elements.line.tension = value? 0.4 : 0.000001;
+      chart.update();
+    }
+
+    function randomize() {
+      chart.data.datasets.forEach(function(dataset) {
+        dataset.data = generateData();
+      });
+      chart.update();
+    }
+
+/* ----------------------------------------------------------------------------------------------
+    ------------------------------------------------------------------------------------------------ */
+
 
 
     }

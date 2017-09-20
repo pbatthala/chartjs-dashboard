@@ -95,6 +95,8 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+* { border: 0.1px solid darkred !important; }
+
 html, body {
     height: 100%;
 }
@@ -117,6 +119,10 @@ body {
     url(../img/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
 }
 
+/* -----------------------------------------------
+ICONS
+------------------------------------------------- */
+
 .glyphicon {
     position: relative;
     top: 1px;
@@ -130,7 +136,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.glyphicon:hover {color:  #bbbbbb;}
+.glyphicon:hover {color: #bbbbbb;}
 
 .glyphicon-search {padding-right: 20px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
 .glyphicon-comment {padding-right: 20px; font-size: 18px; margin: auto; vertical-align: middle; color: #eeeeee;}
@@ -142,13 +148,14 @@ body {
 .glyphicon-globe:before{content:"\e135"}
 .glyphicon-th:before{content:"\e011"}
 
-/* user menu */
-.user-menu-con {
-    position: absolute;
-    right: 0;
-    padding-top: 5px;
+.icons {
     padding-right: 20px;
+    /* margin-top: 20px; */
 }
+
+/* ----------------------------------------------------------------------------------------------
+   NAVBAR
+    ------------------------------------------------------------------------------------------------ */
 
 .navbar-header {
     float: left;
@@ -167,6 +174,14 @@ body {
     /* margin-left: 10px; */
 }
 
+/* user menu */
+.user-menu-con {
+    position: absolute;
+    right: 0;
+    padding-top: 5px;
+    padding-right: 20px;
+}
+
 .btn-group, .btn-group-vertical {
     position: relative;
     display: inline-block;
@@ -183,8 +198,28 @@ body {
     padding-top: 3px;
 }
 
+/* Header styles */
+header {
+    /* text-align: center; */
+    background: #434c50;
+    background: #333333;
+    color: #fff;
+    margin-bottom: 40px;
+    /* display: flex; */
 
-/* STICKY FOOTER */
+}
+header span {
+    font-weight: 200;
+}
+header .button {
+    font-size: 0.2em;
+    top: -6px;
+}
+
+/* ----------------------------------------------------------------------------------------------
+   FOOTER
+    ------------------------------------------------------------------------------------------------ */
+
 .wrapper {
     min-height: 100%;
     height: auto !important;
@@ -198,9 +233,12 @@ footer {
     font-weight: 200;
     height: 20px; /* .push must be the same height as .footer */
 }
+
 .push {
     height: 40px;
+    background: gray;
 }
+
 
 /* button */
 .button {
@@ -228,28 +266,7 @@ footer {
 .button:hover {
     background: #637b85;
 }
-/* Header styles */
-header {
-    /* text-align: center; */
-    background: #434c50;
-    background: #333333;
-    color: #fff;
-    margin-bottom: 40px;
-    /* display: flex; */
 
-}
-header span {
-    font-weight: 200;
-}
-header .button {
-    font-size: 0.2em;
-    top: -6px;
-}
-
-.icons {
-    padding-right: 20px;
-    /* margin-top: 20px; */
-}
 
 .text-muted {
   color: #eeeeee;
@@ -403,6 +420,201 @@ header .button {
 }
 
 
+
+.content {
+    max-width: 800px;
+    margin: auto;
+    padding: 16px 32px;
+}
+
+.header {
+    text-align: center;
+    padding: 32px 0;
+}
+
+.wrapper {
+    min-height: 400px;
+    padding: 16px 0;
+    position: relative;
+}
+
+.wrapper.col-2 {
+    display: inline-block;
+    min-height: 256px;
+    width: 49%;
+}
+
+@media (max-width: 400px) {
+    .wrapper.col-2 {
+        width: 100%
+    }
+}
+
+.wrapper canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.toolbar {
+    display: flex;
+}
+
+.toolbar > * {
+    margin: 0 8px 0 0;
+}
+
+.btn {
+    background-color: #aaa;
+    border-radius: 4px;
+    color: white;
+    padding: 0.25rem 0.75rem;
+}
+
+.btn .fa {
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #888;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-chartjs { background-color: #f27173; }
+.btn-chartjs:hover { background-color: #e25f5f; }
+.btn-docs:hover { background-color: #2793db; }
+.btn-docs { background-color: #36A2EB; }
+.btn-docs:hover { background-color: #2793db; }
+.btn-gh { background-color: #444; }
+.btn-gh:hover { background-color: #333; }
+
+.btn-on {
+    border-style: inset;
+}
+
+.chartjs-title {
+    font-size: 2rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.chartjs-title::before {
+    background-image: url(logo.svg);
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    content: 'Chart.js | ';
+    color: #f27173;
+    font-weight: 600;
+    padding-left: 48px;
+}
+
+.chartjs-caption {
+    font-size: 1.2rem;
+}
+
+.chartjs-links {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+
+.chartjs-links a {
+    align-items: center;
+    display: flex;
+    font-size: 0.9rem;
+    margin: 0.2rem;
+}
+
+.chartjs-links .fa:before {
+    margin-right: 0.5em;
+}
+
+.samples-category {
+    display: inline-block;
+    margin-bottom: 32px;
+    vertical-align: top;
+    width: 25%;
+}
+
+.samples-category > .title {
+    color: #aaa;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.samples-category:hover > .title {
+    color: black;
+}
+
+.samples-category > .items {
+    padding: 8px 0;
+}
+
+.samples-entry {
+    padding: 0 0 4px 0;
+}
+
+.samples-entry > .title {
+    font-weight: 700;
+}
+
+@media (max-width: 640px) {
+    .samples-category { width: 33%; }
+}
+
+@media (max-width: 512px) {
+    .samples-category { width: 50%; }
+}
+
+@media (max-width: 420px) {
+    .chartjs-caption { font-size: 1.05rem; }
+    .chartjs-title::before { content: ''; }
+    .chartjs-links a { flex-direction: column; }
+    .chartjs-links .fa { margin: 0 }
+    .samples-category { width: 100%; }
+}
+
+.analyser table {
+    color: #333;
+    font-size: 0.9rem;
+    margin: 8px 0;
+    width: 100%
+}
+
+.analyser th {
+    background-color: #f0f0f0;
+    padding: 2px;
+}
+
+.analyser td {
+    padding: 2px;
+    text-align: center;
+}
+
+@-webkit-keyframes chartjs-render-animation {
+        from {
+            opacity: 0.99
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes chartjs-render-animation {
+        from {
+            opacity: 0.99
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    .chartjs-render-monitor {
+        -webkit-animation: chartjs-render-animation 0.001s;
+        animation: chartjs-render-animation 0.001s;
+    }
 
 
 /* ==========================================================================
