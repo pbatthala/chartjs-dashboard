@@ -16,6 +16,8 @@
     <script src="js/vendor/Chart.min.js"></script>
     <script src="js/vendor/jquery-3.2.1.min.js"></script>
     <script src="js/vendor/jquery-1.12.0.min.js"></script>
+        <script src="js/analyser.js"></script>
+    <script src="js/utils.js"></script>
 </head>
 
 <body>
@@ -83,9 +85,37 @@
         <!-- ---------------------------------------------------------------------------------------- -->
         <div class="push"></div>
         <!-- ---------------------------------------------------------------------------------------- -->
+        <div class="container clearfix">
+            <div class="third widget doughnut">
+                <h3>Goals</h3>
+                <p><span>Data</span></p>
+                <p><a href="" class="button">Data</a></p>
+                <div class="canvas-container">
+                    <canvas id="goals"></canvas>
+                </div>
+            </div>
+            <div class="third widget bar">
+                <h3>Cost</h3>
+                <p><span>Over 2017</span></p>
+                <p><a href="" class="button">Data</a></p>
+                <div class="canvas-container">
+                    <canvas id="cost"></canvas>
+                </div>
+            </div>
+            <div class="third widget doughnut">
+                <h3>Goals</h3>
+                <p><span>2016/2017</span></p>
+                <p><a href="" class="button">Data</a></p>
+                <div class="canvas-container">
+                    <canvas id="goalsC"></canvas>
+                </div>
+            </div>
+        </div>
+
+
         <!-- END WRAPPER -->
         <!-- ---------------------------------------------------------------------------------------- -->
-        <div class="container clearfix">
+        <!-- <div class="container clearfix">
             <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
                 <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
                     <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
@@ -96,7 +126,6 @@
             </div>
             <canvas id="chart-0" width="800" height="400" class="chartjs-render-monitor" style="display: block; width: 800px; height: 400px;"></canvas>
         </div>
-        <div class="push"></div>
         <div class="container clearfix">
             <div id="chart-analyser" class="analyser">
                 <table>
@@ -158,20 +187,21 @@
                 <button onclick="togglePropagate(this)" class="btn-on">Propagate</button>
                 <button onclick="toggleSmooth(this)">Smooth</button>
                 <button onclick="randomize(this)">Randomize</button>
-            </div>
-        </div>
-        <div class="push"></div>
+            </div> -->
+        <!-- </div>
+        <div class="push"></div> -->
     </div>
+    <div class="push"></div>
     <footer>
         <div class="container">
             ChartJS Demo - Esteban Amas &copy;
         </div>
     </footer>
+
     <!---------------------------------------------------------- -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="js/vendor/rangeslider.min.js"></script>
-    <script src="js/analyser.js"></script>
-    <script src="js/utils.js"></script>
+
     <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
 

@@ -95,7 +95,7 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-* { border: 0.1px solid darkred !important; }
+/* * { border: 0.1px solid darkred !important; } */
 
 html, body {
     height: 100%;
@@ -236,7 +236,7 @@ footer {
 
 .push {
     height: 40px;
-    background: gray;
+    /* background: lightgrey; */
 }
 
 
