@@ -378,11 +378,11 @@
       options: options
     });
 
-     $('#propagate').click(function togglePropagate(btn) {
+    function togglePropagate(btn) {
       var value = btn.classList.toggle('btn-on');
       chart.options.plugins.filler.propagate = value;
       chart.update();
-    });
+    }
 
     function toggleSmooth(btn) {
       var value = btn.classList.toggle('btn-on');

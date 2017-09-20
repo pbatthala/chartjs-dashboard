@@ -83,11 +83,9 @@
         <!-- ---------------------------------------------------------------------------------------- -->
         <div class="push"></div>
         <!-- ---------------------------------------------------------------------------------------- -->
-    </div>
-    <!-- END WRAPPER -->
-    <!-- ---------------------------------------------------------------------------------------- -->
-    <div class="content">
-        <div class="wrapper">
+        <!-- END WRAPPER -->
+        <!-- ---------------------------------------------------------------------------------------- -->
+        <div class="container clearfix">
             <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
                 <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
                     <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
@@ -98,67 +96,71 @@
             </div>
             <canvas id="chart-0" width="800" height="400" class="chartjs-render-monitor" style="display: block; width: 800px; height: 400px;"></canvas>
         </div>
-        <div id="chart-analyser" class="analyser">
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Dataset</th>
-                        <th>Fill</th>
-                        <th>Target (visibility)</th>
-                    </tr>
-                    <tr>
-                        <td><b>0</b></td>
-                        <td>undefined</td>
-                        <td>(hidden)</td>
-                    </tr>
-                    <tr>
-                        <td><b>1</b></td>
-                        <td>"-1"</td>
-                        <td>boundary "origin"</td>
-                    </tr>
-                    <tr>
-                        <td><b>2</b></td>
-                        <td>1</td>
-                        <td>(hidden)</td>
-                    </tr>
-                    <tr>
-                        <td><b>3</b></td>
-                        <td>"-1"</td>
-                        <td>dataset 1</td>
-                    </tr>
-                    <tr>
-                        <td><b>4</b></td>
-                        <td>"-1"</td>
-                        <td>dataset 3</td>
-                    </tr>
-                    <tr>
-                        <td><b>5</b></td>
-                        <td>"+2"</td>
-                        <td>dataset 7</td>
-                    </tr>
-                    <tr>
-                        <td><b>6</b></td>
-                        <td>false</td>
-                        <td>none</td>
-                    </tr>
-                    <tr>
-                        <td><b>7</b></td>
-                        <td>8</td>
-                        <td>boundary "end"</td>
-                    </tr>
-                    <tr>
-                        <td><b>8</b></td>
-                        <td>"end"</td>
-                        <td>(hidden)</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="push"></div>
+        <div class="container clearfix">
+            <div id="chart-analyser" class="analyser">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Dataset</th>
+                            <th>Fill</th>
+                            <th>Target (visibility)</th>
+                        </tr>
+                        <tr>
+                            <td><b>0</b></td>
+                            <td>undefined</td>
+                            <td>(hidden)</td>
+                        </tr>
+                        <tr>
+                            <td><b>1</b></td>
+                            <td>"-1"</td>
+                            <td>boundary "origin"</td>
+                        </tr>
+                        <tr>
+                            <td><b>2</b></td>
+                            <td>1</td>
+                            <td>(hidden)</td>
+                        </tr>
+                        <tr>
+                            <td><b>3</b></td>
+                            <td>"-1"</td>
+                            <td>dataset 1</td>
+                        </tr>
+                        <tr>
+                            <td><b>4</b></td>
+                            <td>"-1"</td>
+                            <td>dataset 3</td>
+                        </tr>
+                        <tr>
+                            <td><b>5</b></td>
+                            <td>"+2"</td>
+                            <td>dataset 7</td>
+                        </tr>
+                        <tr>
+                            <td><b>6</b></td>
+                            <td>false</td>
+                            <td>none</td>
+                        </tr>
+                        <tr>
+                            <td><b>7</b></td>
+                            <td>8</td>
+                            <td>boundary "end"</td>
+                        </tr>
+                        <tr>
+                            <td><b>8</b></td>
+                            <td>"end"</td>
+                            <td>(hidden)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="toolbar">
+                <button onclick="togglePropagate(this)" class="btn-on">Propagate</button>
+                <button onclick="toggleSmooth(this)">Smooth</button>
+                <button onclick="randomize(this)">Randomize</button>
+            </div>
         </div>
-        <div class="toolbar">
-            <button id="propagate" onclick="togglePropagate(this)" class="btn-on">Propagate</button>
-            <button id="smooth" onclick="toggleSmooth(this)">Smooth</button>
-            <button id="randomize" onclick="randomize(this)">Randomize</button>
-        </div>
+        <div class="push"></div>
     </div>
     <footer>
         <div class="container">
