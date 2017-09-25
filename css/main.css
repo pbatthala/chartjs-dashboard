@@ -16,6 +16,8 @@ html {
     line-height: 1.4;
 }
 
+
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -107,16 +109,27 @@ body {
 }
 
 /* ==========================================================================
-   GLYPHICONS
+   FONTS
    ========================================================================== */
 
 @font-face{
     font-family:'Glyphicons Halflings';
-    src:url(../img/glyphicons-halflings-regular.eot);
-    src:url(../img/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),
-    url(../img/glyphicons-halflings-regular.woff) format('woff'),
-    url(../img/glyphicons-halflings-regular.ttf) format('truetype'),
-    url(../img/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+    src:url(../fonts/glyphicons-halflings-regular.eot);
+    src:url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/glyphicons-halflings-regular.woff) format('woff'),
+    url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),
+    url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+}
+
+@font-face {
+ font-family: "Marvin";
+ src: url("../fonts/MarvinVisions-Bold.woff2") format("woff2"),
+        url("../fonts/MarvinVisions-Bold.woff") format("woff");
+}
+
+h1 {
+    font-family: 'Marvin';
+    font-size: 36pt!important;
 }
 
 /* -----------------------------------------------
