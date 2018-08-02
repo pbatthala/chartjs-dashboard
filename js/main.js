@@ -59,7 +59,6 @@
         $('#ajax').click(function() {
             $.ajax({
                 method: "GET",
-                // url: "http://titan.blue.com:7070/HelloWorld",
                 url: "https://uinames.com/api/?amount=2&region=United%20States&ext",
                 dataType: "jsonp",
                 crossDomain: true,
